@@ -7,12 +7,10 @@
     <meta name="description" content="Sample Catalog Application created by Michael Werts, a Full Stack Engineer from San Jose, California.">
     <title>Catalog App</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <script defer src="images/fontawesome-free-5/svg-with-js/js/fontawesome-all.js"></script>
   </head>
   <body>
     <header>
-    <h1>Catalog App</h1>
+    <h1><a href='/catalog/'>Catalog App</a></h1>
     <nav>
     </nav>
     </header>
@@ -21,16 +19,20 @@
         <h2>Categories</h2>
         {% for i in categories %}
         <div>
-          {{i.name}}
+          <a href='/catalog/{{i.name}}'>{{i.name}}</a>
         </div>
         {% endfor %}
+        <br>
+        <div>
+          <a href='/catalog/add'>Add Item</a>
+        </div>
       </nav>
       <nav>
-        <h2>{{category_name}} Items (2 items)</h2>
-        {% for i in items %}
-          <div>
-            {{i.name}}
-          </div>
+        <h2>{{category_name}} Items ({{ items|length }} items)</h2>
+        {% for c, i in items %}
+        <div>
+          <a href='/catalog/{{category_name}}/{{i.name}}'>{{i.name}}</a>
+        </div>
         {% endfor %}
       </nav>
     </main>

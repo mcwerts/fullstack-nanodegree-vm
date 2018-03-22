@@ -7,12 +7,10 @@
     <meta name="description" content="Sample Catalog Application created by Michael Werts, a Full Stack Engineer from San Jose, California.">
     <title>Catalog App</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <script defer src="images/fontawesome-free-5/svg-with-js/js/fontawesome-all.js"></script>
   </head>
   <body>
     <header>
-    <h1>Catalog App</h1>
+    <h1><a href='/catalog/'>Catalog App</a></h1>
     <nav>
     </nav>
     </header>
@@ -24,6 +22,14 @@
         <input type = 'text' size = '30' name = 'name'>
         <p>Description</p>
         <input type = 'text' size = '30' name = 'description'>
+        <p>Category</p>
+        <select name="category">
+        {% for i in categories %}
+        <option value="{{i.name}}">{{i.name}}</option>
+          {{i.name}}
+        </div>
+        {% endfor %}
+        </select>
         <input type='submit', value='Add'>
       </form>
 
