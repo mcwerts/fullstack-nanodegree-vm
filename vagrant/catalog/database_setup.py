@@ -15,6 +15,14 @@ class Category(Base):
   def __repr__(self):
     return "<Category(name={}, id={})>".format(self.name, self.id)
 
+  @property
+  def serialize(self):
+    """Returns Category data in an easily serializable format"""
+    return {
+      'name' : self.name,
+      'id' : self.id,
+    }
+
 
 class Item(Base):
   __tablename__ = 'item'
@@ -28,6 +36,15 @@ class Item(Base):
     return "<Item(name={}, id={}, description={}, category_id={})>".format(self.name,
       self.id, self.description, self.category_id)
 
+  @property
+  def serialize(self):
+    """Returns Item data in an easily serializable format"""
+    return {
+      'name' : self.name,
+      'id' : self.id,
+      'description' : self.description,
+      'category_id' : self.category_id,
+    }
 
 engine = create_engine('sqlite:///catalog.db')
 Base.metadata.create_all(engine)
