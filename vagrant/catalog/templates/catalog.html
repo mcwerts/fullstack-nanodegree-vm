@@ -16,6 +16,15 @@
     </header>
     <main>
       <nav>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <u1>
+          {% for message in messages %}
+            <li><strong> {{ message }} </strong></li>
+          {% endfor %}
+        </u1>
+        {% endif %}
+        {% endwith %}
         <h2>Categories</h2>
         {% for i in categories %}
         <div>
