@@ -44,8 +44,10 @@ def showItemsJSON(category_name):
 @app.route('/catalog/')
 def showCatalog():
   """Show categories and latest items."""
+  print("showCatalog")
   categories = session.query(Category).all()
   latest = session.query(Category, Item).filter(Category.id==Item.category_id).order_by(Item.id.desc())
+  print("return from showCatalog")
   return render_template('catalog.html', categories=categories, latest=latest)
 
 
@@ -107,7 +109,7 @@ def editItem(category_name, item_name):
     flash("Item edited: {} / {}".format(category, name))
     return redirect(url_for('showCatalog'))
   else:
-    item = item_tuple[1]
+    item = join_tuple[1]
     print(item)
     return render_template('editItem.html',
       category_name=category_name, item_name=item_name, item=item, categories=session.query(Category).all())
