@@ -1,0 +1,279 @@
+/*
+ *
+ * Base dimensions: iPhone 5/SE, 320x568
+ *
+ */
+
+* {
+  border: none /* 1px dotted red */;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /*max-width: 750px;*/
+}
+
+body {
+  font: 14px Roboto, Arial, Helvetica, sans-serif;
+  background-color: lightgray;
+  color: #424242;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+header,
+nav,
+footer,
+section,
+article,
+div {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%
+}
+
+/*
+ *
+ * Header
+ *
+ */
+
+header {
+  background-color: darkblue;
+}
+
+.header__inner {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: left;
+  margin: 0 12px 1em;
+  min-height: 92px;
+}
+
+.header__appbar {
+  padding: 6px 0 0px;
+}
+
+.header__apptitle {
+  font: 100 2em Roboto, Arial, Helvetica, sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+.header__nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-width: 100%;
+  padding: 0 0 6px;
+}
+
+.header__button-green {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+.header__button-orange {
+  background-color: darkorange;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+
+/*
+ *
+ * Main -- project work
+ *
+ */
+
+main {
+  margin: 0 10px 0;
+}
+
+.main__inner{
+  border: 1px dotted red;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.main__catalog {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.main__article {
+  width: 100%;
+}
+
+.main__heading {
+  color: darkblue;
+  margin-bottom: 6px;
+}
+
+.main__item {
+  padding: 4px 0;
+}
+
+.main__link {
+  text-decoration: none;
+  color: darkorange;
+}
+
+.main__latest {
+  min-width: 50%;
+}
+
+.message-view {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/*.main_msgtext {
+  vertical-aligan: middle;
+}*/
+
+.main__itemdesc {
+  font: 12px Roboto, Arial, Helvetica, sans-serif;
+  margin-bottom: 12px;
+}
+
+.item__buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  /*align-items: flex-start;*/
+  max-width: 135px;
+  padding: 0 0 6px;
+}
+
+.form__heading {
+  font: 16px Roboto, Arial, Helvetica, sans-serif;
+  color: darkblue;
+  margin: 12px 0px 4px;
+}
+
+form {
+  width: 100%;
+  margin: 0 10px 10px 0;
+}
+
+input[type=text] {
+  width: 92%;
+  padding: 6px 10px;
+}
+
+select {
+  padding: 8px 10px;
+  margin-bottom: 12px;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  font: 14px Roboto, Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 8px 16px;
+}
+
+.project__heading {
+  font: 400 1.5em  Roboto, Arial, Helvetica, sans-serif;
+  color: gray;
+  margin: 0 0 10px;
+}
+
+/*
+ *
+ * Credits
+ *
+ */
+
+footer {
+  margin: 3em 0 1em;
+}
+
+.footer__inner {
+  margin: 4px;
+}
+
+
+/*
+ *
+ * Responsive Properties
+ *
+ */
+
+/* Nexus 5X viewport 412x732 */
+@media screen and (min-width: 320px) {
+  /*.header__inner {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: auto;
+  }*/
+
+  .header__info {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: right;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: 140px;
+  }
+
+  .header__name {
+    font: 100 2.5em Roboto, Arial, Helvetica, sans-serif;
+  }
+
+  .header__title {
+    font: 400 1.3em  Roboto, Arial, Helvetica, sans-serif;
+    color: white;
+  }
+
+  .header__banner {
+    height: 200px;
+    margin: 0 0 2em;
+  }
+}
+
+/* iPad width 768x1024 */
+@media screen and (min-width: 760px) {
+  body,
+  html {
+    margin: 0 auto;
+  }
+}
+

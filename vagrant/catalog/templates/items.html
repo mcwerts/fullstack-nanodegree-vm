@@ -7,34 +7,41 @@
     <meta name="description" content="Sample Catalog Application created by Michael Werts, a Full Stack Engineer from San Jose, California.">
     <title>Catalog App</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
     <header>
-    <h1><a href='/catalog/'>Catalog App</a></h1>
-    <nav>
-    </nav>
+      <div class="header__inner">
+        <div class="header__appbar">
+          <a class="header__apptitle" href='/catalog/'>SportsExchange</a>
+        </div>
+        <nav class="header__nav">
+          <a class="header__button-green" href="{{ url_for('addItem') }}">Add Item</a>
+          <a class="header__button-orange" href=" #">Login</a>
+        </nav>
+      </div>
     </header>
     <main>
-      <nav>
-        <h2>Categories</h2>
-        {% for i in categories %}
-        <div>
-          <a href='/catalog/{{i.name}}'>{{i.name}}</a>
+      <div class="main__inner">
+        <div class="main__catalog">
+          <nav class="main__categories">
+            <h2 class="main__heading">Categories</h2>
+            {% for i in categories %}
+            <div class="main__item" >
+              <a class="main__link" href='/catalog/{{i.name}}'>{{i.name}}</a>
+            </div>
+            {% endfor %}
+          </nav>
+          <nav class="main__latest">
+            <h2 class="main__heading">{{category_name}} ({{ items|length }})</h2>
+            {% for c, i in items %}
+            <div class="main__item">
+              <a class="main__link" href='/catalog/{{category_name}}/{{i.name}}'>{{i.name}}</a>
+            </div>
+            {% endfor %}
+          </nav>
         </div>
-        {% endfor %}
-        <br>
-        <div>
-          <a href='/catalog/add'>Add Item</a>
-        </div>
-      </nav>
-      <nav>
-        <h2>{{category_name}} Items ({{ items|length }} items)</h2>
-        {% for c, i in items %}
-        <div>
-          <a href='/catalog/{{category_name}}/{{i.name}}'>{{i.name}}</a>
-        </div>
-        {% endfor %}
-      </nav>
+      </div>
     </main>
     <footer>
     </footer>
