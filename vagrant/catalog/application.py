@@ -33,7 +33,7 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-def lookupJoinTupleByName(category_name, item_name):
+def lookup_join_tuple_by_name(category_name, item_name):
   """
   Search inner join of Category and Item tables for category_name and item_name.
 
@@ -45,7 +45,7 @@ def lookupJoinTupleByName(category_name, item_name):
 
 
 def print_response_headers(dictionary):
-  """Neatly print the response"""
+  """Neatly print the response headers"""
   print("{")
   for k, v in dictionary.items():
     print("  {}: {}".format(k, v))
@@ -82,6 +82,7 @@ def showLogin():
     login_session['state']))
   return render_template(
     'login.html', client_id=client_id, STATE=login_session['state'])
+
 
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
@@ -264,7 +265,7 @@ def showItems(category_name):
 
 @app.route('/catalog/<string:category_name>/<string:item_name>/')
 def showItemDetails(category_name, item_name):
-  join_tuple = lookupJoinTupleByName(category_name, item_name)
+  join_tuple = lookup_join_tuple_by_name(category_name, item_name)
   #print(item)
   return render_template('itemDetails.html',
     category_name=category_name, item_name=item_name, item=join_tuple)
@@ -293,7 +294,7 @@ def addItem():
 
 @app.route('/catalog/<string:category_name>/<string:item_name>/edit', methods = ['GET', 'POST'])
 def editItem(category_name, item_name):
-  join_tuple = lookupJoinTupleByName(category_name, item_name)
+  join_tuple = lookup_join_tuple_by_name(category_name, item_name)
   if request.method == 'POST':
     edited_item = join_tuple[1]
 
@@ -321,7 +322,7 @@ def editItem(category_name, item_name):
 @app.route('/catalog/<string:category_name>/<string:item_name>/delete', methods = ['GET', 'POST'])
 def deleteItem(category_name, item_name):
   if request.method == 'POST':
-    join_tuple = lookupJoinTupleByName(category_name, item_name)
+    join_tuple = lookup_join_tuple_by_name(category_name, item_name)
     item = join_tuple[1]
     session.delete(item)
     session.commit()
